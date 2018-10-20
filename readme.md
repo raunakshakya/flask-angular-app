@@ -19,3 +19,9 @@ In Windows:
     
     > curl http://127.0.0.1:5000/exams
 
+
+Running the frontend application
+
+    (online-exam)  D:\flask-angular-app\online-exam> cd frontend
+    
+    (online-exam)  D:\flask-angular-app\online-exam\frontend> ng serve
