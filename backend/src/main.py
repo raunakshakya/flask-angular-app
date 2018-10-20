@@ -30,8 +30,12 @@ def get_exams():
 @app.route('/exams', methods=['POST'])
 def add_exam():
     # mount exam object
-    posted_exam = ExamSchema(only=('title', 'description')) \
-        .load(request.get_json())
+    print("posted_exam")
+
+    jsondata = request.get_json()
+    print(jsondata)
+    posted_exam = ExamSchema(only=('title', 'description')).load(request.get_json())
+    print(posted_exam)
 
     exam = Exam(**posted_exam.data, created_by="HTTP post request")
 
