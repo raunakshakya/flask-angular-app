@@ -5,7 +5,7 @@ https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-
     D:\flask-angular-app\online-exam>cd backend    
     D:\flask-angular-app\online-exam\backend>pipenv --three
 
-###### Script to facilitate running the application
+#### Script to facilitate running the application
 
     $ ./bootstrap.sh &
     $ curl -X POST -H 'Content-Type: application/json' -d '{
@@ -21,7 +21,6 @@ In Windows:
     > curl -X POST -H "Content-Type: application/json" -d "{\"title\":\"TypeScript Advanced Exam\", \"description\":\"Tricky questions about TypeScript.\"}" http://127.0.0.1:5000/exams
     > curl http://127.0.0.1:5000/exams
 
-
 Running the frontend application
 
     (online-exam)  D:\flask-angular-app\online-exam> cd frontend
@@ -29,6 +28,7 @@ Running the frontend application
     (online-exam)  D:\flask-angular-app\online-exam\frontend> ng serve
     OR:
     (online-exam)  D:\flask-angular-app\online-exam\frontend> npm start
+
 
 https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-web-apps-part-2/
 
@@ -41,7 +41,6 @@ providers using protocols like OpenID Connect, SAML, and WS-Federation, don't wo
 That is, Auth0 can help us focus on what matters the most to us, the special features of our product. 
 In addition, Auth0 can improve oour product's security with state-of-the-art features like passwordless, 
 breached password surveillance, and multifactor authentication.
-
 
     C:\Users\rauna>
     curl --request POST --url https://rkshakya.auth0.com/oauth/token --header "content-type: application/json" --data "{\"client_id\":\"WrsPEivnNQFsfxih5gfy5Eg25ALNlBen\",\"client_secret\":\"lAHyK2wnFdJ__3WtwyfF_iG32JciZ2n8tH1NAkLTr1Ya3TxTSGFlOuaQleWyJz20\",\"audience\":\"https://online-exam.digituz.com.br\",\"grant_type\":\"client_credentials\"}"
@@ -62,3 +61,28 @@ breached password surveillance, and multifactor authentication.
     
     Output:
     {"created_at":"2018-10-21T08:55:24.288517+00:00","description":"Tricky questions about TypeScript.","id":7.0,"last_updated_by":"HTTP post request","title":"TypeScript Advanced  Exam","updated_at":"2018-10-21T08:55:24.288517+00:00"}
+
+
+https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-web-apps-part-3/
+
+    (online-exam)  D:\flask-angular-app\online-exam> cd frontend
+
+    # install dependencies with NPM
+    (online-exam)  D:\flask-angular-app\online-exam\frontend> npm i @angular/material @angular/cdk hammerjs
+    (online-exam)  D:\flask-angular-app\online-exam\frontend> npm start
+
+#### Migrating Databases with Alembic
+
+    (online-exam)  D:\flask-angular-app\online-exam> cd backend
+    (online-exam)  D:\flask-angular-app\online-exam\backend> pipenv shell
+
+    # install alembic
+    (online-exam)  D:\flask-angular-app\online-exam\backend> pipenv install alembic
+    
+    # run it in the backend directory
+    (online-exam)  D:\flask-angular-app\online-exam\backend> alembic init migrations
+    
+**Create a simple migration to add the long_description column to the exams table.**
+
+    (online-exam)  D:\flask-angular-app\online-exam\backend> alembic revision -m "add long_description to exams"
+    (online-exam)  D:\flask-angular-app\online-exam\backend> alembic upgrade head
