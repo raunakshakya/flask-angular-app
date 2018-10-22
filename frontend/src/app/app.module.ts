@@ -11,6 +11,9 @@ import {ExamsComponent} from './exams/exams.component';
 import * as Auth0 from 'auth0-web';
 import {CallbackComponent} from './callback.component';
 
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule, MatButtonModule} from '@angular/material';
+
 const appRoutes: Routes = [
   {path: 'new-exam', component: ExamFormComponent},
   {path: '', component: ExamsComponent},
@@ -30,6 +33,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
     ),
+    NoopAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [ExamsApiService],
   bootstrap: [AppComponent]
