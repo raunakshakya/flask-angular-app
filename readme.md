@@ -27,7 +27,8 @@ Running the frontend application
     (online-exam)  D:\flask-angular-app\online-exam> cd frontend
     
     (online-exam)  D:\flask-angular-app\online-exam\frontend> ng serve
-
+    OR:
+    (online-exam)  D:\flask-angular-app\online-exam\frontend> npm start
 
 https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-web-apps-part-2/
 

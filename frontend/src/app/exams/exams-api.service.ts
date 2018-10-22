@@ -34,4 +34,14 @@ export class ExamsApiService {
     return this.http
       .post(`${LOCAL_API_URL}/exams`, exam, httpOptions);
   }
+
+  deleteExam(examId: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      })
+    };
+    return this.http
+      .delete(`${LOCAL_API_URL}/exams/${examId}`, httpOptions);
+  }
 }

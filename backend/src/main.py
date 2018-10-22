@@ -3,7 +3,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from .auth import AuthError, requires_auth
+from .auth import AuthError, requires_auth, requires_role
 
 from .entities.entity import Session, engine, Base
 from .entities.exam import Exam, ExamSchema
@@ -60,3 +60,14 @@ def handle_auth_error(ex):
     response = jsonify(ex.error)
     response.status_code = ex.status_code
     return response
+
+
+@app.route('/exams/<examId>', methods=['DELETE'])
+@requires_role('admin')
+def delete_exam(examId):
+    session = Session()
+    exam = session.query(Exam).filter_by(id=examId).first()
+    session.delete(exam)
+    session.commit()
+    session.close()
+    return '', 201
