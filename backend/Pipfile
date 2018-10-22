@@ -11,6 +11,7 @@ marshmallow = "*"
 flask-cors = "*"
 python-jose = "*"
 pycryptodome = "*"
+alembic = "*"
 
 [dev-packages]
 
